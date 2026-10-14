@@ -2,7 +2,15 @@
 
 Assistant de vente conversationnel pour boutique e-commerce, construit avec n8n. Il conseille le client, l'oriente vers des packs, enregistre la commande dans Google Sheets et peut envoyer un email de confirmation.
 
-![Workflow](images/avoluxa-chatbot-workflow.png)
+## Démo vidéo
+
+Regardez le chatbot répondre aux questions et enregistrer des commandes en direct :
+
+[![Démo AVOLUXA](https://img.youtube.com/vi/5zejwvMa9H8/maxresdefault.jpg)](https://www.youtube.com/watch?v=5zejwvMa9H8)
+
+## Aperçu du workflow
+
+![Workflow n8n AVOLUXA](images/avoluxa-chatbot-workflow.png)
 
 ## Fonctionnalités
 - Conversation de vente (méthode problème → solution → closing)
@@ -13,6 +21,16 @@ Assistant de vente conversationnel pour boutique e-commerce, construit avec n8n.
 
 ## Stack
 n8n · Google Gemini · PostgreSQL · Google Sheets · Gmail
+
+## Structure du dépôt
+
+| Fichier / dossier | Rôle |
+|---|---|
+| `workflow.json` | Workflow n8n à importer |
+| `documents/system-prompt.md` | Prompt de l'assistant, à personnaliser |
+| `donnees/commandes-modele.csv` | Modèle de colonnes du Google Sheet |
+| `images/` | Capture du workflow |
+| `.env.exemple` | Variables à renseigner (sans valeurs réelles) |
 
 ## Installation
 1. Importer `workflow.json` dans n8n (Workflows → Import from file).
@@ -38,7 +56,7 @@ La réponse est renvoyée par le nœud *Respond to Webhook*.
 Modifiez le system prompt pour adapter produits, ton et règles de vente à votre boutique.
 
 ## Sécurité
-Aucune clé ni credential dans ce dépôt. Restreignez `allowedOrigins` du webhook à votre domaine en production.
+Aucune clé ni credential dans ce dépôt. En production, remplacez `allowedOrigins: "*"` du webhook par votre domaine.
 
 ## Licence
 MIT
