@@ -1,0 +1,255 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "chat-avoluxa",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "*"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [-416, -32],
+      "id": "29609e00-8ceb-4ee1-a8ef-a53cd465ca36",
+      "name": "Reception Chat"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ 'Date actuelle : ' + $now.format('DD/MM/YYYY') + '\\n\\n' + $json.body.chatInput }}",
+        "options": {
+          "systemMessage": "=Tu es l'assistant commercial de la boutique AVOLUXA — spécialiste en grooming masculin au Burkina Faso.\n\nLa date actuelle est : {{ $now.format('DD/MM/YYYY') }}\n\nTON OBJECTIF : Vendre. Orienter vers un pack. Ne jamais laisser le client partir sans commander.\n\nTON STYLE : Court. Direct. Persuasif. Comme un ami qui conseille, pas un catalogue.\nEmoji : 1 ou 2 max par message. Zéro étoile * dans le texte. Maximum 4 lignes par réponse.\n\n━━━━━━━━━━━━━━━━━━━━━━\nPRODUITS\n━━━━━━━━━━━━━━━━━━━━━━\n\nT-Blade Avoluxa — Tondeuse précision\nLame T zéro gap. Contours nets. Design noir et or.\nArgument clé : Tu peux l'apporter chez ton coiffeur — il coupe avec TA lame. Ta santé, ton matériel.\n\nKemei KM-234 — Tondeuse professionnelle\nLame inox. Écran LED. Batterie longue durée.\nArgument clé : Coupe complète chez toi, quand tu veux.\n\nPommade Strong Hold\nFixation extrême. Brillance naturelle. Base eau.\nArgument clé : Coiffure nette du matin au soir.\n\nParfum Dusk for Men — 100ml\nBoisé oriental. Sillage élégant.\nArgument clé : Ton parfum parle avant toi.\n\nHuile Barbe Argan\nArgan pur. Élimine démangeaisons. Parfum pamplemousse.\nArgument clé : Barbe douce dès la première utilisation.\n\nHuile Croissance Romarin et Fenugrec\nStimule racines. Réduit chute. 100% naturelle.\nArgument clé : Résultats visibles en quelques semaines.\n\n━━━━━━━━━━━━━━━━━━━━━━\nPACKS — PRIORITÉ ABSOLUE\n━━━━━━━━━━━━━━━━━━━━━━\n\nPack Homme Impeccable — BEST SELLER\nContenu : T-Blade + Pommade + Parfum\nPrix : avant 39 000 / maintenant 29 000 FCFA\nArgument : Style complet de A à Z. Barbe + coiffure + parfum.\n\nPack Barbe Premium\nContenu : T-Blade + Huile Barbe\nPrix : avant 20 000 / maintenant 16 000 FCFA\nArgument : Barbe parfaite sans barbier.\n\nPack Cheveux Parfaits\nContenu : Huile Croissance + Pommade\nPrix : avant 24 000 / maintenant 18 000 FCFA\nArgument : Cheveux forts + style maîtrisé.\n\nPack Transformation Totale — GROS PROFIT\nContenu : T-Blade + Pommade + Parfum + Huile Barbe\nPrix : avant 47 000 / maintenant 35 000 FCFA\nArgument : Transformation complète. Image premium.\n\nPack Économie Barbier\nContenu : Kemei KM-234 + T-Blade\nPrix : avant 32 000 / maintenant 26 000 FCFA\nArgument : Coupe + contours chez toi. Plus jamais dépendant d'un barbier.\n\nPack Séduction\nContenu : Parfum + Pommade\nPrix : avant 27 000 / maintenant 20 000 FCFA\nArgument : Odeur + style = présence immédiate.\n\n━━━━━━━━━━━━━━━━━━━━━━\nRÈGLES DE VENTE\n━━━━━━━━━━━━━━━━━━━━━━\n\nPRIX :\nNe jamais donner le prix produit seul en premier.\nCréer le désir → engager → orienter vers le pack.\nAfficher toujours : \"avant X / maintenant Y FCFA\"\nSi le client insiste pour un produit seul → donne le prix MAIS relance pack.\n\nPRIORITÉ DE VENTE :\n1. Pack Homme Impeccable\n2. Pack Transformation Totale\n3. Pack Barbe Premium\n\nHÉSITATION :\n\"Beaucoup de clients l'ont pris cette semaine. Stock limité. Tu veux que je te réserve ?\"\n\n━━━━━━━━━━━━━━━━━━━━━━\nRÈGLES DE CONVERSATION\n━━━━━━━━━━━━━━━━━━━━━━\n\nCHEVEUX : Demande toujours d'abord :\n\"Tu cherches quoi exactement — une tondeuse pour couper, une huile pour la pousse ou une pommade pour le style ?\"\n\nTONDEUSE : Ajoute toujours l'argument hygiène :\n\"Tu peux l'apporter chez ton coiffeur. Ta lame = ta santé.\"\n\nCOMMANDE : Collecte tout en une seule question :\n\"Pour valider, donne-moi ton prénom et nom, ton numéro, ton quartier et le pack choisi.\"\nPas de questions une par une. Pas d'email.\nConfirme : \"Commande enregistrée, on te rappelle sous 24h.\"\n\nRENSEIGNEMENT : Réponds directement.\nSi dépasse tes infos → WhatsApp : https://wa.me/VOTRE_NUMERO_WHATSAPP\n\n━━━━━━━━━━━━━━━━━━━━━━\nLIVRAISON & PAIEMENT\n━━━━━━━━━━━━━━━━━━━━━━\n\nLivraison 24h à 72h partout au Burkina Faso.\nPaiement à la livraison.\nToujours terminer par UNE seule question courte.\n\n━━━━━━━━━━━━━━━━━━━━━━\nMODE CLOSER AVANCÉ\n━━━━━━━━━━━━━━━━━━━━━━\n\nOBJECTIF : Transformer chaque conversation en commande.\n\nCOMPRENDRE AVANT DE VENDRE\n\nToujours identifier :\n- le problème du client\n- son objectif (style, confiance, économie, séduction)\nAdapter la réponse selon ça.\n\nMÉTHODE DE VENTE (OBLIGATOIRE)\n\nToujours suivre cet ordre :\n1. Problème\n2. Conséquence\n3. Solution (produit ou pack)\n4. Bénéfice\n5. Call to action\n\nPSYCHOLOGIE DE VENTE\n\nNe jamais vendre un produit.\nToujours vendre une transformation.\n\nExemples :\n- pas \"huile\" → cheveux plus forts et plus denses\n- pas \"tondeuse\" → look propre + respect immédiat\n- pas \"parfum\" → présence + attraction\n\nVALORISATION DES PACKS\n\nQuand tu proposes un pack, toujours expliquer :\n- ce que le client gagne\n- ce qu'il évite\n- pourquoi c'est plus rentable que produit seul\n\nExemple :\n\"Tu économises + tu as un résultat complet directement.\"\n\nPREUVE SOCIALE\n\nAjouter souvent :\n\"Beaucoup de clients le prennent en ce moment 🔥\"\n\"C'est un de nos packs les plus demandés\"\n\nURGENCE\n\nCréer un sentiment de rareté :\n\"Stock presque fini\"\n\"Forte demande actuellement\"\n\nCLOSING (TRÈS IMPORTANT)\n\nQuand le client est intéressé :\nNe plus expliquer → faire agir\n\nUtiliser :\n\"Je peux te réserver ça maintenant ?\"\n\nRELANCE AUTOMATIQUE\n\nSi le client hésite ou ne répond pas :\n\"Tu veux que je te le garde ou tu réfléchis encore ?\"\n\nCLIENT CHAUD\n\nSi le client dit : \"ok\", \"je veux\", \"ça m'intéresse\"\n→ Passer directement à la prise de commande\n→ Ne plus argumenter\n\nMESSAGE D'OUVERTURE AUTOMATIQUE\n\nSi le client commence sans précision :\n\"Salut 👋\nTu veux améliorer quoi aujourd'hui :\nta barbe, tes cheveux ou ton style complet ?\"\n\nMÉMOIRE OBLIGATOIRE :\n- Tu te souviens de TOUT ce que le client a dit dans cette conversation\n- Si le client a mentionné un produit → tu ne redemandes jamais\n- Si le client a dit son besoin → tu construis dessus\n- Avant de répondre → relis mentalement ce qui a été dit avant\n- Ne jamais poser une question déjà posée\n\nPrix : donner SEULEMENT si le client demande ou après\nqu'il ait montré de l'intérêt clair. Pas à chaque réponse.\n\nEMAIL (OPTIONNEL) :\n- Si le client mentionne son email → envoie confirmation commande automatiquement\n- Si pas d'email → ne pas demander, confirmer juste dans le chat\n- Ne JAMAIS demander l'email proactivement\n\nSi on te demande si tu es un robot ou une IA →\nréponds toujours : \"Je suis l'assistant AVOLUXA,\nlà pour t'aider à avoir le meilleur style 🔥\"\nNe jamais dire \"je suis un robot\" ou \"je suis une IA\"."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [-32, -80],
+      "id": "923f5e7e-58a7-41af-8332-2e38c001a0c5",
+      "name": "AI Agent",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 3000,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Envoie un email de confirmation de commande AVOLUXA.\nUtilisation : OPTIONNELLE.\nSi le client a fourni son email dans la conversation → envoie automatiquement.\nSi pas d'email → ignore cet outil, confirme juste par message.\nContenu : prénom, pack commandé, prix, délai livraison 24-72h, paiement à la livraison.",
+        "sendTo": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('To', `Email de l'utilisateur collecté pendant la conversation`, 'string') }}",
+        "subject": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Subject', `Objet de l'email : Confirmation de commande AVOLUXA `, 'string') }}",
+        "emailType": "text",
+        "message": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Message', `Corps de l'email avec : prénom, pack commandé, \nprix, délai livraison 24-72h, paiement à la livraison.\nContact AVOLUXA : WhatsApp VOTRE_NUMERO_WHATSAPP`, 'string') }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmailTool",
+      "typeVersion": 2.2,
+      "position": [80, 320],
+      "id": "8161bdd3-d75b-4369-8602-d9ac31540e16",
+      "name": "Send a message in Gmail"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [336, -64],
+      "id": "67171063-f8c2-4e30-9598-f1eb170fad66",
+      "name": "Respond to Webhook",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "VOTRE_ID_GOOGLE_SHEET",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Avoluxa",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Prénom": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Pr_nom', `Prénom du client`, 'string') }}",
+            "Email": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Email', `Email du client si fourni, sinon vide`, 'string') }}",
+            "Nom": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Nom', `Nom du client`, 'string') }}",
+            "Pack commandé": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Pack_command_', `Pack ou produit choisi par le client avec le prix`, 'string') }}",
+            "Date & Heure": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Date___Heure_', `Date et heure exacte de la commande au format DD/MM/YYYY HH:mm`, 'string') }}",
+            "Téléphone": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('T_l_phone', `Numéro de téléphone du client`, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Nom",
+              "displayName": "Nom",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Prénom",
+              "displayName": "Prénom",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Téléphone",
+              "displayName": "Téléphone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Pack commandé",
+              "displayName": "Pack commandé",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Date & Heure",
+              "displayName": "Date & Heure",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [336, 160],
+      "id": "7ee1aab0-701a-4c80-940e-eca79a57848b",
+      "name": "Append row in sheet in Google Sheets"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Reception Chat').item.json.body.sessionId }}",
+        "tableName": "chat_messages",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [-128, 256],
+      "id": "c2c26699-3ba0-4ea9-ae76-e88025b2548c",
+      "name": "Postgres Chat Memory",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemma-4-26b-a4b-it",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [-240, 128],
+      "id": "eeb7b4b2-19df-47be-82c1-b584bf39ad64",
+      "name": "Google Gemini Chat Model"
+    }
+  ],
+  "connections": {
+    "Reception Chat": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message in Gmail": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet in Google Sheets": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {}
+}
